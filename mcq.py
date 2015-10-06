@@ -27,7 +27,7 @@ class Ui_Form(object):
         Form.setObjectName(_fromUtf8("Form"))
         Form.resize(1096, 765)
         self.label = QtGui.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(170, 250, 321, 81))
+        self.label.setGeometry(QtCore.QRect(170, 250, 850, 81))
         self.label.setStyleSheet(_fromUtf8("font: 75 28pt \"MS Shell Dlg 2\";"))
         self.label.setObjectName(_fromUtf8("label"))
         self.radioButton = QtGui.QRadioButton(Form)
@@ -62,11 +62,42 @@ class Ui_Form(object):
 if __name__ == "__main__":
     import sys
     import random
+    import string
     
     app = QtGui.QApplication(sys.argv)
     Form = QtGui.QWidget()
     ui = Ui_Form()
     ui.setupUi(Form)
     Form.show()
+    WORDLIST_FILENAME = "GREwords.txt"
+    def loadWords():
+        """
+        Returns a list of valid words. Words are strings of lowercase letters.
+        
+        Depending on the size of the word list, this function may
+        take a while to finish.
+        """
+        print "Loading word list from file..."
+        # inFile: file
+        inFile = open(WORDLIST_FILENAME, 'r', 0)
+        # line: string
+        line = inFile.readline()
+        # wordlist: list of strings
+        wordlist = string.split(line)
+        print "  ", len(wordlist), "words loaded."
+        return wordlist
+    def chooseWord(wordlist):
+        """
+        wordlist (list): list of words (strings)
+
+        Returns a word from wordlist at random
+        """
+        return random.choice(wordlist)
+    # Load the list of words into the variable wordlist
+    # so that it can be accessed from anywhere in the program
+    wordlist = loadWords()
+
+    secretWord = chooseWord(wordlist).lower()
+    ui.label.setText("What is the meaning of the word "+secretWord+"?")
     sys.exit(app.exec_())
 
