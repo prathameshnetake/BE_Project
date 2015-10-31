@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="prefix/Pictures">
+    <file>ubuntu12.04-login-screen.png</file>
+  </qresource>
+</RCC>
