@@ -284,7 +284,14 @@ if __name__ == "__main__":
 
 
     #Now setting up UI
-    
+
+    ui.option1.setText("  1. "+str(start.options[0]))
+    ui.option2.setText("  2. "+str(start.options[1]))
+    ui.option3.setText("  3. "+str(start.options[2]))
+    ui.option4.setText("  4. "+str(start.options[3]))
+
+
+
     ui.label_5.setText("Which of the following meanings are closest to the word :- "+str(start.wordToGuess)+" ?")
     ui.option1.clicked.connect(sel.select1)
     ui.option2.clicked.connect(sel.select2)
