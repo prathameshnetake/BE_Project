@@ -1,5 +1,5 @@
 import random
-
+import string
 WORDLIST_FILENAME = "wordsMean.txt"
 
 def loadWords():

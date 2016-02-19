@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mcq.ui'
 #
-# Created: Fri Feb 19 23:18:31 2016
+# Created: Fri Feb 19 23:18:39 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -178,12 +178,60 @@ class Ui_MainWindow(object):
         self.option4.setText(_translate("MainWindow", "PushButton", None))
 
 
+class option(object):
+    """This class will take control for the selection made by the user"""
+
+
+    def __init__(self):
+        
+        self.choice = None
+
+    def select1(self):
+        self.choice = 1
+        print 'Now selection is 1'
+
+    def select2(self):
+        print 'Now selection is 2'
+        self.choice = 2
+
+    def select3(self):
+        print 'Now selection is 3'
+        self.choice = 3
+
+    def select4(self):
+        print 'Now selection is 4'
+        self.choice = 4
+    def getChoice(self):
+        return self.choice
+        
+
+
+
+
+
 if __name__ == "__main__":
     import sys
+    import random
+
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    #object for selection
+    sel = option()
+    def process():
+        final = sel.getChoice()
+        print "The fianl choice is ",final
+        ui.option1.setEnabled(False)
+        ui.option2.setEnabled(False)
+
+    ui.option1.clicked.connect(sel.select1)
+    ui.option2.clicked.connect(sel.select2)
+    ui.option3.clicked.connect(sel.select3)
+    ui.option4.clicked.connect(sel.select4)
+
+    ui.submit.clicked.connect(process)
+
     MainWindow.show()
     sys.exit(app.exec_())
 
