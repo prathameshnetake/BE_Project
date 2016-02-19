@@ -205,7 +205,54 @@ class option(object):
         return self.choice
         
 
+class MeaningMCQ:   
+    def __init__(self):     
+        self.fourWords = []
+        self.score = 20
+        self.wordlist = []
+        self.correctMeaning = None
+        self.point = 0
+        self.difficulty = 0
+        self.wordToGuess = None
+        self.options = []
+        
+    def loadWords(self):
+        import random       
+        WORDLIST_FILENAME = "wordsMean.txt"     
+        inFile = open(WORDLIST_FILENAME, 'r', 0)        
+        line = inFile.readline()
+        wordlist = inFile.readlines()
+        self.wordlist = wordlist
 
+    def chooseFourWords(self):
+        import random
+        secretWord = []
+        for i in range(4):
+            word = random.choice(self.wordlist)
+            secretWord.append(word.split('\t'))
+            self.wordlist.remove(word)
+        self.fourWords = secretWord     
+
+    def setup(self):
+        import random
+        self.correctMeaning = self.fourWords[0][1]
+        self.wordToGuess = self.fourWords[0][0]
+        self.point = self.fourWords[0][3]
+        self.difficulty = self.fourWords[0][4]
+        random.shuffle(self.fourWords)
+        for j in range(4):
+            self.options.append(self.fourWords[j][1])
+    def printall(self):
+        print self.wordToGuess
+        print self.fourWords
+        print self.options
+
+
+
+
+
+        
+        
 
 
 
@@ -219,12 +266,26 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     #object for selection
     sel = option()
+
+    #object for genrating the word
+
+    start = MeaningMCQ()
+    start.loadWords()
+    start.chooseFourWords()
+    start.setup()
     def process():
         final = sel.getChoice()
         print "The fianl choice is ",final
         ui.option1.setEnabled(False)
         ui.option2.setEnabled(False)
+        ui.option3.setEnabled(False)
+        ui.option4.setEnabled(False)
 
+
+
+    #Now setting up UI
+    
+    ui.label_5.setText("Which of the following meanings are closest to the word :- "+str(start.wordToGuess)+" ?")
     ui.option1.clicked.connect(sel.select1)
     ui.option2.clicked.connect(sel.select2)
     ui.option3.clicked.connect(sel.select3)

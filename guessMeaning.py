@@ -1,5 +1,6 @@
 import random
 import string
+import collections
 WORDLIST_FILENAME = "wordsMean.txt"
 
 def loadWords():
@@ -24,6 +25,7 @@ def loadWords():
 
 
 
+
 wordsDB = loadWords()
 
 
@@ -34,8 +36,8 @@ def chooseWord(wordsRDD, numChoose = 1):
     #wordList = wordsRDD.collect()
     for num in range(numChoose):
         word = random.choice(wordList)
-        secretWord.append(word)
-        wordList.remove(word)
+        secretWord.append(word.split('\t'))
+        wordList.remove(word)       
     return secretWord
 
 
@@ -53,6 +55,7 @@ def guessMeaning(fourWords):
       about whether their guessed meaning is the actual meaning.
     '''
     correctMeaning = fourWords[0][1]
+    print correctMeaning
     print "Welcome to the guess meaning module!"
     print "Which of the following meanings are closest to the word: " + fourWords[0][0] + "?"
     print "Points assigned: " + fourWords[0][3]

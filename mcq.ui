@@ -260,7 +260,7 @@
     <property name="styleSheet">
      <string notr="true">QPushButton {
 
-font: 13pt &quot;Roboto&quot;;
+font: 12pt &quot;Roboto&quot;;
 color: rgb(255, 255, 255);
 background-color: #808080;
 border-radius: 10px;
@@ -278,6 +278,9 @@ text-align: left;
      <number>0</number>
     </property>
     <widget class="QPushButton" name="option1">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -289,11 +292,10 @@ text-align: left;
      <property name="font">
       <font>
        <family>Roboto</family>
-       <pointsize>13</pointsize>
+       <pointsize>12</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
-       <stylestrategy>PreferDefault</stylestrategy>
       </font>
      </property>
      <property name="cursor">
