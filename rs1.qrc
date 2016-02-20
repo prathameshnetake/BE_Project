@@ -1,9 +1,9 @@
 <RCC>
   <qresource prefix="prefix/Pictures">
     <file>Assets/back3.jpg</file>
-    <file>back2.jpg</file>
-    <file>back1.jpg</file>
-    <file>launcher.jpg</file>
-    <file>ubuntu12.04-login-screen.png</file>
+    <file>Assets/back1.jpg</file>
+    <file>Assets/back2.jpg</file>
+    <file>Assets/launcher.jpg</file>
+    <file>Assets/ubuntu12.04-login-screen.png</file>
   </qresource>
 </RCC>

@@ -242,6 +242,7 @@ class MeaningMCQ:
         random.shuffle(self.fourWords)
         for j in range(4):
             self.options.append(self.fourWords[j][1])
+        print self.correctMeaning
     def printall(self):
         print self.wordToGuess
         print self.fourWords
@@ -273,6 +274,9 @@ if __name__ == "__main__":
     start.loadWords()
     start.chooseFourWords()
     start.setup()
+
+    #processing the option buttons
+
     def process():
         final = sel.getChoice()
         print "The fianl choice is ",final
@@ -280,6 +284,36 @@ if __name__ == "__main__":
         ui.option2.setEnabled(False)
         ui.option3.setEnabled(False)
         ui.option4.setEnabled(False)
+        if start.fourWords[final -1][1] == start.correctMeaning:
+            print 'That is correct'
+            if final == 1:
+                ui.option1.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+            elif final == 2:
+                ui.option2.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+            elif final == 3:
+                ui.option3.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+            else:
+                ui.option4.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+        else:
+            print 'That is wrong'
+            if final == 1:
+                ui.option1.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+            elif final == 2:
+                ui.option2.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+            elif final == 3:
+                ui.option3.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+            else:
+                ui.option4.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+            for i in range(4):
+                if start.fourWords[i][1] == start.correctMeaning:
+                    if i == 0:
+                        ui.option1.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                    elif i == 1:
+                        ui.option2.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                    elif i == 2:
+                        ui.option3.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                    else:
+                        ui.option4.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
 
 
 
@@ -297,6 +331,9 @@ if __name__ == "__main__":
     ui.option2.clicked.connect(sel.select2)
     ui.option3.clicked.connect(sel.select3)
     ui.option4.clicked.connect(sel.select4)
+    ui.points.setProperty("value", float(start.point))
+    ui.difficulty.setProperty("value", float(start.difficulty[:2]))
+
 
     ui.submit.clicked.connect(process)
 
