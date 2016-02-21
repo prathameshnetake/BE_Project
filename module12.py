@@ -255,7 +255,7 @@ if __name__ == "__main__":
     MainWindow.show()
 
 
-    WORDLIST_FILENAME = "wordsMean.txt"
+    WORDLIST_FILENAME = "wordsDB.txt"
 
     def loadWords():
         """
