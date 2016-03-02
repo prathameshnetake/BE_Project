@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1189</width>
+    <height>765</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+	background-image: url(:/prefix/Pictures/launcher.jpg);
+}
+QGroupBox{
+	color: rgb(255, 255, 255);
+	font: 63 24pt &quot;Ubuntu&quot;;
+}
+QPushButton{
+	color: rgb(0,0,0);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>40</y>
+      <width>611</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 36pt &quot;Ubuntu&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Welcome User</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>370</y>
+      <width>251</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string>Choose Mode</string>
+    </property>
+    <widget class="QPushButton" name="module1">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Geuss Word</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="module2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Guess Meaning</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="module3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Form Word</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="logout">
+    <property name="geometry">
+     <rect>
+      <x>1060</x>
+      <y>710</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Logout</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>60</y>
+      <width>211</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 36pt &quot;Ubuntu&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>Statastics</string>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>module1</zorder>
+   <zorder>logout</zorder>
+   <zorder>label_2</zorder>
+  </widget>
+ </widget>
+ <resources>
+  <include location="rs1.qrc"/>
+ </resources>
+ <connections/>
+</ui>

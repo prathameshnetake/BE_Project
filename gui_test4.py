@@ -236,9 +236,8 @@ if __name__ == "__main__":
         wordLen = len(secretWord)
         numGuesses = 8
         guessedLetters = ""
-        guess = ""
-         
-        print "Welcome to the game, Hangman!"
+        guess = ""         
+        
         w.label_2.setText("I am thinking of a word that is " + str(wordLen) + " letters long")
          
         while numGuesses > 0:

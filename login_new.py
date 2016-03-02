@@ -78,13 +78,26 @@ class Ui_MainWindow(object):
         self.pushButton.setText(_translate("MainWindow", "Login", None))
 
 import rs1
-
+def submit():
+    print "Prathamesh"
 if __name__ == "__main__":
     import sys
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    ui.pushButton.clicked.connect(submit)
     MainWindow.show()
     sys.exit(app.exec_())
+    
+def main():
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    MainWindow = QtGui.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    #ui.pushButton.clicked.connect(submit)
+    MainWindow.show()
+    sys.exit(app.exec_())
+    
 
