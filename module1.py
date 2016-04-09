@@ -23,8 +23,10 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
+        
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(1319, 894)
         MainWindow.setFocusPolicy(QtCore.Qt.StrongFocus)
@@ -253,6 +255,11 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
+    
+
+
+
 
 
     WORDLIST_FILENAME = "wordsMean.txt"
