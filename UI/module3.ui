@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>988</width>
-    <height>655</height>
+    <width>1067</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="score_label">
@@ -314,7 +317,7 @@
    <widget class="QLabel" name="title">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>40</x>
       <y>20</y>
       <width>451</width>
       <height>61</height>
@@ -322,9 +325,10 @@
     </property>
     <property name="font">
      <font>
+      <family>Lucida Handwriting</family>
       <pointsize>36</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -338,16 +342,16 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>450</y>
+      <y>460</y>
       <width>911</width>
       <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="contextMenuPolicy">
@@ -358,10 +362,18 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>510</y>
-      <width>111</width>
+      <y>520</y>
+      <width>191</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Yu Gothic UI Semilight</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="text">
      <string>Submit</string>
@@ -373,25 +385,34 @@
       <x>50</x>
       <y>590</y>
       <width>911</width>
-      <height>41</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: transparent;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::RichText</enum>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="usWord">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>270</y>
+      <y>260</y>
       <width>911</width>
       <height>41</height>
      </rect>
@@ -411,7 +432,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>320</y>
+      <y>350</y>
       <width>911</width>
       <height>41</height>
      </rect>
@@ -419,8 +440,8 @@
     <property name="font">
      <font>
       <pointsize>16</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -431,7 +452,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>370</y>
+      <y>400</y>
       <width>911</width>
       <height>41</height>
      </rect>
@@ -439,17 +460,78 @@
     <property name="font">
      <font>
       <pointsize>16</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
      <string>Origin of this word : </string>
     </property>
    </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>-10</y>
+      <width>1101</width>
+      <height>741</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/prefix/Pictures/Assets/back4.jpg);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <zorder>msg</zorder>
+   </widget>
+   <widget class="QLabel" name="meaning">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>300</y>
+      <width>911</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Meaning : </string>
+    </property>
+   </widget>
+   <zorder>frame</zorder>
+   <zorder>score_label</zorder>
+   <zorder>score</zorder>
+   <zorder>length</zorder>
+   <zorder>guessleft_label</zorder>
+   <zorder>label_5</zorder>
+   <zorder>points</zorder>
+   <zorder>label_6</zorder>
+   <zorder>line</zorder>
+   <zorder>guessLeft</zorder>
+   <zorder>label_4</zorder>
+   <zorder>difficulty</zorder>
+   <zorder>title</zorder>
+   <zorder>input</zorder>
+   <zorder>submit</zorder>
+   <zorder>msg</zorder>
+   <zorder>usWord</zorder>
+   <zorder>usage</zorder>
+   <zorder>orgin</zorder>
+   <zorder>meaning</zorder>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Resourses/rs1.qrc"/>
+ </resources>
  <connections/>
 </ui>
