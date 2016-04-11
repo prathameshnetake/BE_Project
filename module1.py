@@ -31,7 +31,7 @@ class Ui_MainWindow(object):
         MainWindow.resize(1319, 894)
         MainWindow.setFocusPolicy(QtCore.Qt.StrongFocus)
         MainWindow.setStyleSheet(_fromUtf8("QMainWindow{\n"
-"    background-image: url(:/prefix/Pictures/back2.jpg);\n"
+"    background-image: url(:/prefix/Pictures/Assets/back2.jpg);\n"
 "}"))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
@@ -262,7 +262,7 @@ if __name__ == "__main__":
 
 
 
-    WORDLIST_FILENAME = "wordsMean.txt"
+    WORDLIST_FILENAME = "Final Words DB"
 
     def loadWords():
         """
