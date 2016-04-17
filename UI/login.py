@@ -129,6 +129,7 @@ import rs1
 
 if __name__ == "__main__":
     import sys
+    import os
     from pymongo import MongoClient
     client = MongoClient()
 
@@ -169,6 +170,9 @@ if __name__ == "__main__":
         if users.posts.find_one({'username' : username}):
             if users.posts.find_one({'secret' : pwd}):
                 ui.msg.setText("successfull login plz do something")
+                sys.exit()
+                os.system("python ../landing.py")
+                
             else:
                 ui.msg.setText("Invalid Password")
         else:
