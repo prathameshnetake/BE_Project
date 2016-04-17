@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.resize(1189, 765)
         MainWindow.setStyleSheet(_fromUtf8("QMainWindow{\n"
-"    background-image: url(:/prefix/Pictures/launcher.jpg);\n"
+"    background-image: url(:/prefix/Pictures/Assets/launcher.jpg);\n"
 "}\n"
 "QGroupBox{\n"
 "    color: rgb(255, 255, 255);\n"

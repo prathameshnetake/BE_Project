@@ -32,7 +32,7 @@ class Ui_MainWindow(object):
         MainWindow.setFont(font)
         MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet(_fromUtf8("QFrame{\n"
-"background-image: url(:/prefix/Pictures/ubuntu12.04-login-screen.png);\n"
+"background-image: url(:/prefix/Pictures/Assets/ubuntu12.04-login-screen.png);\n"
 "}\n"
 "QPushButton{\n"
 "    font: 63 14pt \"Ubuntu\";\n"
