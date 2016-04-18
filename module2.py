@@ -260,83 +260,91 @@ class MeaningMCQ:
 if __name__ == "__main__":
     import sys
     import random
+    import time
 
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    #object for selection
-    sel = option()
 
-    #object for genrating the word
 
-    start = MeaningMCQ()
-    start.loadWords()
-    start.chooseFourWords()
-    start.setup()
+    def playModule2():
+        ui = Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        #object for selection
+        sel = option()
 
-    #processing the option buttons
+        #object for genrating the word
 
-    def process():
-        final = sel.getChoice()
-        print "The fianl choice is ",final
-        ui.option1.setEnabled(False)
-        ui.option2.setEnabled(False)
-        ui.option3.setEnabled(False)
-        ui.option4.setEnabled(False)
-        if start.fourWords[final -1][1] == start.correctMeaning:
-            print 'That is correct'
-            if final == 1:
-                ui.option1.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
-            elif final == 2:
-                ui.option2.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
-            elif final == 3:
-                ui.option3.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+        start = MeaningMCQ()
+        start.loadWords()
+        start.chooseFourWords()
+        start.setup()
+        #Now setting up UI
+
+        ui.option1.setText("  1. "+str(start.options[0]))
+        ui.option2.setText("  2. "+str(start.options[1]))
+        ui.option3.setText("  3. "+str(start.options[2]))
+        ui.option4.setText("  4. "+str(start.options[3]))
+
+
+
+        ui.label_5.setText("Which of the following meanings are closest to the word :- "+str(start.wordToGuess)+" ?")
+        ui.option1.clicked.connect(sel.select1)
+        ui.option2.clicked.connect(sel.select2)
+        ui.option3.clicked.connect(sel.select3)
+        ui.option4.clicked.connect(sel.select4)
+        ui.points.setProperty("value", float(start.point))
+        ui.difficulty.setProperty("value", float(start.difficulty[:2]))
+
+        #processing the option buttons
+
+        def process():
+            final = sel.getChoice()
+            print "The fianl choice is ",final
+            ui.option1.setEnabled(False)
+            ui.option2.setEnabled(False)
+            ui.option3.setEnabled(False)
+            ui.option4.setEnabled(False)
+            if start.fourWords[final -1][1] == start.correctMeaning:
+                print 'That is correct'
+                print final
+                if final == 1:
+                    ui.option1.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                elif final == 2:
+                    ui.option2.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                elif final == 3:
+                    ui.option3.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                else:
+                    ui.option4.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
             else:
-                ui.option4.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
-        else:
-            print 'That is wrong'
-            if final == 1:
-                ui.option1.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
-            elif final == 2:
-                ui.option2.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
-            elif final == 3:
-                ui.option3.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
-            else:
-                ui.option4.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
-            for i in range(4):
-                if start.fourWords[i][1] == start.correctMeaning:
-                    if i == 0:
-                        ui.option1.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
-                    elif i == 1:
-                        ui.option2.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
-                    elif i == 2:
-                        ui.option3.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
-                    else:
-                        ui.option4.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                print 'That is wrong'
+                print final
+                if final == 1:
+                    ui.option1.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+                elif final == 2:
+                    ui.option2.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+                elif final == 3:
+                    ui.option3.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+                else:
+                    ui.option4.setStyleSheet(_fromUtf8("background-color: #cc3300;\n"))
+                for i in range(4):
+                    if start.fourWords[i][1] == start.correctMeaning:
+                        if i == 0:
+                            ui.option1.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                        elif i == 1:
+                            ui.option2.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                        elif i == 2:
+                            ui.option3.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+                        else:
+                            ui.option4.setStyleSheet(_fromUtf8("background-color: #33cc33;\n"))
+            app.processEvents()
+            time.sleep(2)
+            playModule2()
+
+        
 
 
-
-    #Now setting up UI
-
-    ui.option1.setText("  1. "+str(start.options[0]))
-    ui.option2.setText("  2. "+str(start.options[1]))
-    ui.option3.setText("  3. "+str(start.options[2]))
-    ui.option4.setText("  4. "+str(start.options[3]))
-
-
-
-    ui.label_5.setText("Which of the following meanings are closest to the word :- "+str(start.wordToGuess)+" ?")
-    ui.option1.clicked.connect(sel.select1)
-    ui.option2.clicked.connect(sel.select2)
-    ui.option3.clicked.connect(sel.select3)
-    ui.option4.clicked.connect(sel.select4)
-    ui.points.setProperty("value", float(start.point))
-    ui.difficulty.setProperty("value", float(start.difficulty[:2]))
-
-
-    ui.submit.clicked.connect(process)
-
+        ui.submit.clicked.connect(process)
+    playModule2()
     MainWindow.show()
     sys.exit(app.exec_())
 

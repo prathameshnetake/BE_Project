@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="prefix/Pictures">
+    <file>../Assets/analytics.jpg</file>
     <file>../Assets/back4.jpg</file>
     <file>../Assets/back1.jpg</file>
     <file>../Assets/back2.jpg</file>

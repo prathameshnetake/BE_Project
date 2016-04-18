@@ -324,43 +324,51 @@ class moduleUIS:
 
 if __name__ == "__main__":
     import sys
+    import time
     from gingerit.gingerit import GingerIt
-
-    m = moduleUIS()
-    m.loadWords()
-    m.chooseWord()
-    m.setup()
-    m.fetchScore()
-    m.printall()
-
 
 
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
+    def playModule3():
+        m = moduleUIS()
+        m.loadWords()
+        m.chooseWord()
+        m.setup()
+        m.fetchScore()
+        m.printall()
 
-    ui.usWord.setText("Use the following word in a sentence : "+m.wordToUse)
-    ui.usage.setText("It is genrally used as : "+m.usage)
-    ui.orgin.setText("Origin of this word : "+m.origin)
-    ui.points.setProperty("value", float(m.point))
-    ui.difficulty.setProperty("value", float(m.difficulty))
-    ui.score.setProperty("value", float(m.score))
-    ui.meaning.setText("Meaning : "+m.meaning)
 
-    def useInSentence():
-        sentence = str(ui.input.text())
-        if m.wordToUse not in sentence.split(' '):
-            ui.msg.setText("You have not used %s in the sentence. Please check if the spelling and form used is correct!" % (m.wordToUse))
-        else:
-            parser = GingerIt()
-            op = parser.parse(sentence)
-            if not op['corrections']:
-                ui.msg.setText("Your sentence is correct!")
+
+        
+        ui = Ui_MainWindow()
+        ui.setupUi(MainWindow)
+
+        ui.usWord.setText("Use the following word in a sentence : "+m.wordToUse)
+        ui.usage.setText("It is genrally used as : "+m.usage)
+        ui.orgin.setText("Origin of this word : "+m.origin)
+        ui.points.setProperty("value", float(m.point))
+        ui.difficulty.setProperty("value", float(m.difficulty))
+        ui.score.setProperty("value", float(m.score))
+        ui.meaning.setText("Meaning : "+m.meaning)
+
+        def useInSentence():
+            sentence = str(ui.input.text())
+            if m.wordToUse not in sentence.split(' '):
+                ui.msg.setText("You have not used %s in the sentence. Please check if the spelling and form used is correct!" % (m.wordToUse))
             else:
-                ui.msg.setText("The correct sentence should be: " + op['result'] + sentence[-1])
+                parser = GingerIt()
+                op = parser.parse(sentence)
+                if not op['corrections']:
+                    ui.msg.setText("Your sentence is correct!")
+                else:
+                    ui.msg.setText("The correct sentence should be: " + op['result'] + sentence[-1])
+                app.processEvents()
+                time.sleep(2)
+                playModule3()
 
 
-    ui.submit.clicked.connect(useInSentence)
+        ui.submit.clicked.connect(useInSentence)
+    playModule3()
     MainWindow.show()
     sys.exit(app.exec_())

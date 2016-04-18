@@ -78,10 +78,38 @@ import rs1
 
 if __name__ == "__main__":
     import sys
+    import os
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    username = sys.argv[1]
+    ui.label.setText("Welcome "+username)
+
+
+    def module1():
+        os.system("python module1.py "+username)
+
+    def module2():
+        os.system("python module2.py "+username)
+
+    def module3():
+        os.system("python module3.py "+username)
+
+    def logout():
+        sys.exit()
+
+    ui.module1.clicked.connect(module1)
+    ui.module2.clicked.connect(module2)
+    ui.module3.clicked.connect(module3)
+    ui.logout.clicked.connect(logout)
+
+
+
+
+
+
+
     MainWindow.show()
     sys.exit(app.exec_())
 

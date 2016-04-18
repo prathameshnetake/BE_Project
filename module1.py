@@ -255,14 +255,9 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-
-    
-
-
-
-
-
     WORDLIST_FILENAME = "Final Words DB"
+
+
 
     def loadWords():
         """
@@ -300,10 +295,7 @@ if __name__ == "__main__":
         line = chooseLine(wordlist)
         lineList = line.split('\t')
         print lineList        
-        return lineList[0], lineList[1], lineList[2], lineList[3], lineList[4][0:2]
-        
-        
-    
+        return lineList[0], lineList[1], lineList[2], lineList[3], lineList[4][0:2]    
     
     def isWordGuessed(secretWord, lettersGuessed):
         '''
@@ -318,7 +310,6 @@ if __name__ == "__main__":
                 return False
      
         return True
-
 
     def getAvailableLetters(lettersGuessed):
         '''
@@ -374,6 +365,10 @@ if __name__ == "__main__":
                 availableLetters = getAvailableLetters(guessedLetters)
                 if isWordGuessed(secretWord, guessedLetters):
                     ui.msg.setText("Congratulations, you won!")
+                    time.sleep(1)
+                    ui.msg.setText("Loading new word from database!")
+                    time.sleep(1)
+                    playModule1()
                     #break
                 guess = str(ui.input.text())
 
@@ -395,30 +390,28 @@ if __name__ == "__main__":
                     ui.input.setText("")
             if numGuesses == 0:
                 ui.msg.setText("Sorry! You loose "+secretWord+" was the word")
-                
-
-
-
+                time.sleep(1)
+                ui.msg.setText("Loading new word from database!")
+                time.sleep(1)
+                playModule1()
             print "Prathamesh"+guess
-        
-
-
         ui.length.setProperty("value", float(wordLen))
         ui.submit.clicked.connect(clicked)
         
 
 
 
+    def playModule1():
+        wordlist = loadWords()
+        secretWord, meaning, usage, points, difficulty = chooseWord(wordlist) 
+        print secretWord  
+        hangman(secretWord)
+        ui.meaning.setText(meaning)
+        ui.usage.setText(usage)
+        ui.points.setProperty("value", float(points))
+        ui.difficulty.setProperty("value", float(difficulty))
 
-    wordlist = loadWords()
-    secretWord, meaning, usage, points, difficulty = chooseWord(wordlist) 
-    print secretWord  
-    hangman(secretWord)
-    ui.meaning.setText(meaning)
-    ui.usage.setText(usage)
-    ui.points.setProperty("value", float(points))
-    ui.difficulty.setProperty("value", float(difficulty))
-
+    playModule1()
 
 
 

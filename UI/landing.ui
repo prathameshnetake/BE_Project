@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1189</width>
-    <height>765</height>
+    <width>1000</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -46,7 +46,7 @@ color: rgb(255, 255, 255);</string>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>880</x>
+      <x>710</x>
       <y>370</y>
       <width>251</width>
       <height>211</height>
@@ -111,32 +111,10 @@ color: rgb(255, 255, 255);</string>
      <string>Logout</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>890</x>
-      <y>60</y>
-      <width>211</width>
-      <height>71</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 36pt &quot;Ubuntu&quot;;
-color: rgb(255, 255, 255);</string>
-    </property>
-    <property name="text">
-     <string>Statastics</string>
-    </property>
-   </widget>
-   <zorder>label</zorder>
-   <zorder>groupBox</zorder>
-   <zorder>module1</zorder>
-   <zorder>logout</zorder>
-   <zorder>label_2</zorder>
   </widget>
  </widget>
  <resources>
-  <include location="rs1.qrc"/>
+  <include location="../Resourses/rs1.qrc"/>
  </resources>
  <connections/>
 </ui>

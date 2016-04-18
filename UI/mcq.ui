@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>module2</class>
+ <widget class="QMainWindow" name="module2">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>800</height>
+    <width>1005</width>
+    <height>696</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="cursor">
+   <cursorShape>OpenHandCursor</cursorShape>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Module 2</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
   </property>
   <property name="styleSheet">
-   <string notr="true">QMainWindow {
-	background-image: url(:/prefix/Pictures/Assets/back3.jpg);
+   <string notr="true">QFrame#all_frame{
+
+	background-image: url(:/prefix/Pictures/Assets/back4.jpg);
 
 }</string>
   </property>
@@ -28,9 +44,14 @@
      <rect>
       <x>50</x>
       <y>640</y>
-      <width>211</width>
-      <height>51</height>
+      <width>131</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Submit</string>
@@ -48,8 +69,8 @@
     <property name="font">
      <font>
       <pointsize>18</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">
@@ -59,7 +80,7 @@
    <widget class="QLCDNumber" name="difficulty">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>280</x>
       <y>190</y>
       <width>131</width>
       <height>71</height>
@@ -96,7 +117,7 @@
      <rect>
       <x>0</x>
       <y>270</y>
-      <width>1171</width>
+      <width>1011</width>
       <height>20</height>
      </rect>
     </property>
@@ -107,7 +128,7 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>60</x>
       <y>150</y>
       <width>171</width>
       <height>31</height>
@@ -136,7 +157,7 @@
    <widget class="QLCDNumber" name="points">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>70</x>
       <y>200</y>
       <width>131</width>
       <height>71</height>
@@ -171,7 +192,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>280</x>
       <y>150</y>
       <width>171</width>
       <height>31</height>
@@ -194,7 +215,7 @@
    <widget class="QLabel" name="score_label">
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>640</x>
       <y>30</y>
       <width>141</width>
       <height>61</height>
@@ -211,31 +232,11 @@
      <string>Score</string>
     </property>
    </widget>
-   <widget class="QLabel" name="title">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>481</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>36</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Chooose Meaning</string>
-    </property>
-   </widget>
    <widget class="QLCDNumber" name="score">
     <property name="geometry">
      <rect>
-      <x>950</x>
-      <y>20</y>
+      <x>800</x>
+      <y>40</y>
       <width>171</width>
       <height>71</height>
      </rect>
@@ -269,13 +270,14 @@
     <property name="styleSheet">
      <string notr="true">QPushButton {
 
-font: 12pt &quot;Roboto&quot;;
+font: 10pt &quot;Roboto&quot;;
 color: rgb(255, 255, 255);
 background-color: #808080;
 border-radius: 10px;
 text-align: left;
 
-}</string>
+}
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -294,18 +296,9 @@ text-align: left;
       <rect>
        <x>0</x>
        <y>16</y>
-       <width>1091</width>
+       <width>921</width>
        <height>41</height>
       </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
      </property>
      <property name="cursor">
       <cursorShape>PointingHandCursor</cursorShape>
@@ -319,7 +312,7 @@ text-align: left;
       <rect>
        <x>0</x>
        <y>70</y>
-       <width>1091</width>
+       <width>921</width>
        <height>41</height>
       </rect>
      </property>
@@ -335,7 +328,7 @@ text-align: left;
       <rect>
        <x>0</x>
        <y>130</y>
-       <width>1091</width>
+       <width>921</width>
        <height>41</height>
       </rect>
      </property>
@@ -351,7 +344,7 @@ text-align: left;
       <rect>
        <x>0</x>
        <y>190</y>
-       <width>1091</width>
+       <width>921</width>
        <height>41</height>
       </rect>
      </property>
@@ -363,10 +356,77 @@ text-align: left;
      </property>
     </widget>
    </widget>
+   <widget class="QPushButton" name="exit">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>650</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Exit</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="all_frame">
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>-10</y>
+      <width>1041</width>
+      <height>721</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="title">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>40</y>
+       <width>521</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Lucida Handwriting</family>
+       <pointsize>36</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Chooose Meaning</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>all_frame</zorder>
+   <zorder>submit</zorder>
+   <zorder>label_5</zorder>
+   <zorder>difficulty</zorder>
+   <zorder>line</zorder>
+   <zorder>label_6</zorder>
+   <zorder>points</zorder>
+   <zorder>label_8</zorder>
+   <zorder>score_label</zorder>
+   <zorder>score</zorder>
+   <zorder>frame</zorder>
+   <zorder>exit</zorder>
   </widget>
  </widget>
  <resources>
-  <include location="rs1.qrc"/>
+  <include location="../Resourses/rs1.qrc"/>
  </resources>
  <connections/>
 </ui>
