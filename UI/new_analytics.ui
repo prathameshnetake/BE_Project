@@ -16,7 +16,8 @@
   <property name="styleSheet">
    <string notr="true">QMainWindow{
 	
-	background-image: url(:/prefix/Pictures/Assets/launcher.jpg);
+	
+	background-image: url(:/prefix/Pictures/Assets/analytics.jpg);
 }
 QGroupBox{
 	color: rgb(255, 255, 255);
@@ -32,7 +33,7 @@ QPushButton{
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>40</y>
+      <y>20</y>
       <width>611</width>
       <height>71</height>
      </rect>
@@ -48,8 +49,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>320</y>
+      <x>740</x>
+      <y>340</y>
       <width>241</width>
       <height>341</height>
      </rect>
@@ -58,7 +59,7 @@ color: rgb(255, 255, 255);</string>
      <string notr="true"/>
     </property>
     <property name="title">
-     <string>Choose Mode</string>
+     <string>Pi  Charts</string>
     </property>
     <widget class="QPushButton" name="module1">
      <property name="geometry">
@@ -70,7 +71,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="text">
-      <string>Geuss Word</string>
+      <string>Total</string>
      </property>
     </widget>
     <widget class="QPushButton" name="module2">
@@ -83,7 +84,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="text">
-      <string>Guess Meaning</string>
+      <string>Correct</string>
      </property>
     </widget>
     <widget class="QPushButton" name="module3">
@@ -96,20 +97,7 @@ color: rgb(255, 255, 255);</string>
       </rect>
      </property>
      <property name="text">
-      <string>Form Word</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="analytics">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>220</y>
-       <width>201</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Analytics</string>
+      <string>Wrong</string>
      </property>
     </widget>
     <widget class="QPushButton" name="logout">
@@ -123,6 +111,74 @@ color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string>Logout</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="histogram">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>220</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Histogram</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>340</y>
+      <width>241</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="title">
+     <string>Word Cloud</string>
+    </property>
+    <widget class="QPushButton" name="wordTotal">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Total</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="wordCorrect">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Correct</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="wordWrong">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Wrong</string>
      </property>
     </widget>
    </widget>

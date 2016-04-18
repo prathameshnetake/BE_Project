@@ -2,8 +2,7 @@
 
 # Form implementation generated from reading ui file 'module1.ui'
 #
-# Created: Sat Nov 14 18:50:03 2015
-#      by: PyQt4 UI code generator 4.10.4
+# Created by: PyQt4 UI code generator 4.11.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -23,21 +22,21 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-        
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(1319, 894)
+        MainWindow.resize(1000, 700)
         MainWindow.setFocusPolicy(QtCore.Qt.StrongFocus)
         MainWindow.setStyleSheet(_fromUtf8("QMainWindow{\n"
+"    \n"
 "    background-image: url(:/prefix/Pictures/Assets/back2.jpg);\n"
 "}"))
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.title = QtGui.QLabel(self.centralwidget)
-        self.title.setGeometry(QtCore.QRect(80, 10, 281, 61))
+        self.title.setGeometry(QtCore.QRect(30, 30, 461, 61))
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Lucida Handwriting"))
         font.setPointSize(36)
         font.setBold(True)
         font.setWeight(75)
@@ -53,15 +52,13 @@ class Ui_MainWindow(object):
         self.guessleft_label.setAlignment(QtCore.Qt.AlignCenter)
         self.guessleft_label.setObjectName(_fromUtf8("guessleft_label"))
         self.score_label = QtGui.QLabel(self.centralwidget)
-        self.score_label.setGeometry(QtCore.QRect(860, 20, 141, 61))
+        self.score_label.setGeometry(QtCore.QRect(660, 20, 141, 61))
         font = QtGui.QFont()
         font.setPointSize(36)
-        font.setBold(True)
-        font.setWeight(75)
         self.score_label.setFont(font)
         self.score_label.setObjectName(_fromUtf8("score_label"))
         self.score = QtGui.QLCDNumber(self.centralwidget)
-        self.score.setGeometry(QtCore.QRect(1020, 20, 171, 71))
+        self.score.setGeometry(QtCore.QRect(830, 20, 141, 71))
         font = QtGui.QFont()
         font.setPointSize(14)
         font.setBold(True)
@@ -86,7 +83,7 @@ class Ui_MainWindow(object):
         self.guessLeft.setProperty("value", 0.0)
         self.guessLeft.setObjectName(_fromUtf8("guessLeft"))
         self.meaning_label = QtGui.QLabel(self.centralwidget)
-        self.meaning_label.setGeometry(QtCore.QRect(90, 260, 111, 31))
+        self.meaning_label.setGeometry(QtCore.QRect(90, 240, 111, 31))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(False)
@@ -94,7 +91,7 @@ class Ui_MainWindow(object):
         self.meaning_label.setFont(font)
         self.meaning_label.setObjectName(_fromUtf8("meaning_label"))
         self.meaning = QtGui.QLabel(self.centralwidget)
-        self.meaning.setGeometry(QtCore.QRect(90, 310, 1091, 31))
+        self.meaning.setGeometry(QtCore.QRect(210, 240, 621, 41))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(True)
@@ -103,12 +100,12 @@ class Ui_MainWindow(object):
         self.meaning.setText(_fromUtf8(""))
         self.meaning.setObjectName(_fromUtf8("meaning"))
         self.line = QtGui.QFrame(self.centralwidget)
-        self.line.setGeometry(QtCore.QRect(90, 240, 1121, 20))
+        self.line.setGeometry(QtCore.QRect(0, 220, 1121, 20))
         self.line.setFrameShape(QtGui.QFrame.HLine)
         self.line.setFrameShadow(QtGui.QFrame.Sunken)
         self.line.setObjectName(_fromUtf8("line"))
         self.msg = QtGui.QLabel(self.centralwidget)
-        self.msg.setGeometry(QtCore.QRect(70, 740, 691, 41))
+        self.msg.setGeometry(QtCore.QRect(70, 570, 881, 41))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(False)
@@ -141,7 +138,7 @@ class Ui_MainWindow(object):
         self.length.setObjectName(_fromUtf8("length"))
         self.input = QtGui.QLineEdit(self.centralwidget)
         self.input.setEnabled(True)
-        self.input.setGeometry(QtCore.QRect(70, 630, 101, 41))
+        self.input.setGeometry(QtCore.QRect(70, 510, 101, 41))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(True)
@@ -150,10 +147,13 @@ class Ui_MainWindow(object):
         self.input.setContextMenuPolicy(QtCore.Qt.NoContextMenu)
         self.input.setObjectName(_fromUtf8("input"))
         self.submit = QtGui.QPushButton(self.centralwidget)
-        self.submit.setGeometry(QtCore.QRect(180, 630, 111, 41))
+        self.submit.setGeometry(QtCore.QRect(180, 510, 111, 41))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.submit.setFont(font)
         self.submit.setObjectName(_fromUtf8("submit"))
         self.word = QtGui.QLabel(self.centralwidget)
-        self.word.setGeometry(QtCore.QRect(350, 460, 1000, 81))
+        self.word.setGeometry(QtCore.QRect(350, 460, 621, 81))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Nimbus Mono L"))
         font.setPointSize(36)
@@ -212,7 +212,7 @@ class Ui_MainWindow(object):
         self.label_6.setAlignment(QtCore.Qt.AlignCenter)
         self.label_6.setObjectName(_fromUtf8("label_6"))
         self.meaning_label_2 = QtGui.QLabel(self.centralwidget)
-        self.meaning_label_2.setGeometry(QtCore.QRect(90, 360, 111, 31))
+        self.meaning_label_2.setGeometry(QtCore.QRect(90, 310, 111, 31))
         font = QtGui.QFont()
         font.setPointSize(20)
         font.setBold(False)
@@ -220,7 +220,7 @@ class Ui_MainWindow(object):
         self.meaning_label_2.setFont(font)
         self.meaning_label_2.setObjectName(_fromUtf8("meaning_label_2"))
         self.usage = QtGui.QLabel(self.centralwidget)
-        self.usage.setGeometry(QtCore.QRect(90, 400, 591, 41))
+        self.usage.setGeometry(QtCore.QRect(210, 310, 311, 41))
         font = QtGui.QFont()
         font.setPointSize(16)
         font.setBold(True)
@@ -228,13 +228,36 @@ class Ui_MainWindow(object):
         self.usage.setFont(font)
         self.usage.setText(_fromUtf8(""))
         self.usage.setObjectName(_fromUtf8("usage"))
+        self.meaning_label_3 = QtGui.QLabel(self.centralwidget)
+        self.meaning_label_3.setGeometry(QtCore.QRect(90, 380, 111, 31))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(False)
+        font.setWeight(50)
+        self.meaning_label_3.setFont(font)
+        self.meaning_label_3.setObjectName(_fromUtf8("meaning_label_3"))
+        self.origin = QtGui.QLabel(self.centralwidget)
+        self.origin.setGeometry(QtCore.QRect(220, 370, 311, 41))
+        font = QtGui.QFont()
+        font.setPointSize(16)
+        font.setBold(True)
+        font.setWeight(75)
+        self.origin.setFont(font)
+        self.origin.setText(_fromUtf8(""))
+        self.origin.setObjectName(_fromUtf8("origin"))
+        self.exit = QtGui.QPushButton(self.centralwidget)
+        self.exit.setGeometry(QtCore.QRect(880, 650, 111, 41))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.exit.setFont(font)
+        self.exit.setObjectName(_fromUtf8("exit"))
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Module 1", None))
         self.title.setText(_translate("MainWindow", "Guess Word", None))
         self.guessleft_label.setText(_translate("MainWindow", "Guesses Left", None))
         self.score_label.setText(_translate("MainWindow", "Score", None))
@@ -244,18 +267,22 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "Points", None))
         self.label_6.setText(_translate("MainWindow", "Difficulty", None))
         self.meaning_label_2.setText(_translate("MainWindow", "Usage", None))
+        self.meaning_label_3.setText(_translate("MainWindow", "Origin", None))
+        self.exit.setText(_translate("MainWindow", "Exit", None))
 
 import rs1
 import random 
 import string
 if __name__ == "__main__":
     import sys
+    import usersMongo
     app = QtGui.QApplication(sys.argv)
     MainWindow = QtGui.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    WORDLIST_FILENAME = "Final Words DB"
+    WORDLIST_FILENAME = "./Final Words DB"
+    username = sys.argv[1]
 
 
 
@@ -295,7 +322,7 @@ if __name__ == "__main__":
         line = chooseLine(wordlist)
         lineList = line.split('\t')
         print lineList        
-        return lineList[0], lineList[1], lineList[2], lineList[3], lineList[4][0:2]    
+        return lineList[0], lineList[1], lineList[2], lineList[3], lineList[4][0:2] , lineList[5]   
     
     def isWordGuessed(secretWord, lettersGuessed):
         '''
@@ -349,6 +376,9 @@ if __name__ == "__main__":
         ui.word.setText(str(getGuessedWord(secretWord, guessedLetters)))
         ui.input.setFocus()
 
+    wordlist = loadWords()
+    secretWord, meaning, usage, points, difficulty, origin = chooseWord(wordlist) 
+
 
 
 
@@ -365,10 +395,8 @@ if __name__ == "__main__":
                 availableLetters = getAvailableLetters(guessedLetters)
                 if isWordGuessed(secretWord, guessedLetters):
                     ui.msg.setText("Congratulations, you won!")
-                    time.sleep(1)
-                    ui.msg.setText("Loading new word from database!")
-                    time.sleep(1)
-                    playModule1()
+                    usersMongo.updateAttempts(username, secretWord, 1)
+                    
                     #break
                 guess = str(ui.input.text())
 
@@ -390,30 +418,29 @@ if __name__ == "__main__":
                     ui.input.setText("")
             if numGuesses == 0:
                 ui.msg.setText("Sorry! You loose "+secretWord+" was the word")
-                time.sleep(1)
-                ui.msg.setText("Loading new word from database!")
-                time.sleep(1)
-                playModule1()
+                usersMongo.updateAttempts(username, secretWord, -1)
+                
             print "Prathamesh"+guess
         ui.length.setProperty("value", float(wordLen))
         ui.submit.clicked.connect(clicked)
         
+    def close():
+        sys.exit()
 
 
+    
+    
+    print secretWord  
+    hangman(secretWord)
+    ui.meaning.setText(meaning)
+    ui.usage.setText(usage)
+    ui.points.setProperty("value", float(points))
+    ui.difficulty.setProperty("value", float(difficulty))
+    ui.origin.setText(origin)
+    ui.exit.clicked.connect(close)
 
-    def playModule1():
-        wordlist = loadWords()
-        secretWord, meaning, usage, points, difficulty = chooseWord(wordlist) 
-        print secretWord  
-        hangman(secretWord)
-        ui.meaning.setText(meaning)
-        ui.usage.setText(usage)
-        ui.points.setProperty("value", float(points))
-        ui.difficulty.setProperty("value", float(difficulty))
-
-    playModule1()
+    
 
 
 
     sys.exit(app.exec_())
-
