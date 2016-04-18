@@ -1,12 +1,3 @@
-"""
-abase
-lower; degrade; humiliate; make humble; make (oneself) lose self-respect
-verb (used with object)
-7
-48
-late Middle English
-"""
-
 from pymongo import MongoClient
 client = MongoClient()
 
@@ -15,7 +6,7 @@ wordsDB = client['vocabulary-builder']
 wordsCollection = wordsDB['words']
 
 # Create collection if it does not exist
-if wordsDB.posts.count() != 4737:
+if wordsCollection.posts.count() != 4737:
 	rawDB = open("Final Words DB", 'r')
 
 	count = 1

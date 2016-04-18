@@ -3,6 +3,7 @@ client = MongoClient()
 
 usersDB = client['vocabulary-builder']
 users = usersDB['users']
+result = usersDB['train-result']
 
 def createUser(username, name, userType, secret):
 	"""
@@ -17,7 +18,9 @@ def createUser(username, name, userType, secret):
 				'userType' : userType,
 				'secret' : secret
 		}
+		userResult = {'username' : username}
 		newUser = users.posts.insert_one(user)
+		newUser = result.posts.insert_one(userResult)
 		print "User " + str(username) + " successfully created!"
 
 def deleteUser(username):
@@ -26,6 +29,7 @@ def deleteUser(username):
 	"""
 	if users.posts.find_one({'username' : username}):
 		delUser = users.posts.delete_one({'username' : username})
+		delUser = result.posts.delete_one({'username' : username})
 		print 'User ' + str(username) + ' successfully deleted!'
 	else:
 		print "No such user!"
@@ -55,9 +59,11 @@ def updateAttempts(username, word, answer):
 	if answer == 1:
 		update = users.posts.update(myID, {'$inc' : {totalAttempts : 1,
 													correctAttempts : 1,
+													wrongAttempts : 0,
 													wordClass : 1}})
 	elif answer == -1:
 		update = users.posts.update(myID, {'$inc' : {totalAttempts : 1,
+													correctAttempts : 0,
 													wrongAttempts : 1,
 													wordClass : -1}})
 	else:

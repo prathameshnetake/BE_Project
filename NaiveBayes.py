@@ -1,49 +1,85 @@
 import warnings
 import numpy as np
-import random
 from sklearn.naive_bayes import GaussianNB
 from pymongo import MongoClient
 
-def loadWords():
-	wordsDB = open("Final Words DB", 'r')
-	rawDB = []
-	for line in wordsDB:
-		rawDB.append(line.strip().split('\t'))
-	wordsDB.close()
-	return rawDB
-
-# wordsData = loadWords()
-
 client = MongoClient()
 db = client['vocabulary-builder']
-wordsCollection = db['words']
+words = db['words']
+users = db['users']
+result = db['train-result']
 
-print str(db.posts.count()) + " words loaded"
-one = list(db.posts.find({} , {'id' : 1, 'points' : 1, 'diff' : 1}))
-# print type(one), len(one)
-# print one[0], one[1]
+def rightOrWrong(number):
+	"""
+	If number <= zero, returns -1
+	Else returns +1
+	"""
+	if number <= 0:
+		return -1
+	else:
+		return 1
 
-feat = map(lambda x : (x['id'], int(x['points']), int(x['diff'])), one)
-# print type(feat)
-# print feat[0]
+def setWordClass(probList):
+	"""
+	Calculates and returns the class of the word
+	probList: List, probabilities corresponding to class -1 and 1 respectively
+	[P(Class -1), P(Class +1)]
+	returns the class to which the word belongs
+	"""
+	if probList[0] >= probList[1]:
+		return -abs(round(probList[0], 4))
+	else:
+		return abs(round(probList[1], 4))
 
-X = random.sample(feat, 20)
-Y = []
-for x in X:
-	print db.posts.find_one({'id' : x[0]}, {'word' : 1})['word'],
-	Y.append(int(raw_input("1/-1? ")))
+def getClassList(username):
+	userAtt = users.posts.find_one({'username' : username}, {'username' : 0,
+															'name' : 0,
+															'userType' : 0,
+															'secret' : 0,
+															'_id' : 0})
+	return map(lambda x : rightOrWrong(x['wordClass']), userAtt.values())
 
-print Y
+def getFeatures(username):
+	userAtt = users.posts.find_one({'username' : username}, {'username' : 0,
+															'name' : 0,
+															'userType' : 0,
+															'secret' : 0,
+															'_id' : 0})
+	features = []
+	for key in userAtt.keys():
+		feat = words.posts.find_one({'word' : key}, {'id' : 1,
+													'points' : 1,
+													'diff' : 1,
+													'_id' : 0})
+		# print map(lambda x : (x['id'], x['points'], x['diff']) ,feat)
+		feat = (feat['id'], feat['points'], feat['diff'])
+		features.append(feat)
+	return features
 
-trainX = np.array(X)
-trainY = np.array(Y)
+def trainData(username):
+	"""
+	Trains the data based on the users performance so far
+	Returns a trained Gaussian Naive Bayes model and updates result collection
+	"""
+	X = getFeatures(username)
+	Y = getClassList(username)
+	
+	trainX = np.array(X)
+	trainY = np.array(Y)
 
-gnb = GaussianNB()
-gnb.fit(trainX, trainY)
-print "Score with Naive Bayes: ", gnb.score(trainX, trainY)
+	gnb = GaussianNB()
+	gnb.fit(trainX, trainY)
+	print "Score with Naive Bayes: ", gnb.score(trainX, trainY)
 
-testData = feat[4700 : ]
-with warnings.catch_warnings():
-	warnings.simplefilter('ignore')
-	for data in testData:
-		print gnb.predict_proba(data)
+	testData = words.posts.find({}, {'id' : 1,
+									'points' : 1,
+									'diff' : 1,
+									'_id' : 0})
+	testData = map(lambda x : (x['id'], x['points'], x['diff']), testData)
+
+	with warnings.catch_warnings():
+		warnings.simplefilter('ignore')
+		for data in testData:
+			testWord = words.posts.find_one({'id' : data[0]}, {'word' : 1, '_id' : 0})['word']
+			wordClass = setWordClass(list(gnb.predict_proba(data))[0])
+			classWord = result.posts.update({'username' : username}, {'$set' : {testWord : wordClass}}, upsert = True)
