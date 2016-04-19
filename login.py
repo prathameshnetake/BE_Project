@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         font.setPointSize(17)
         MainWindow.setFont(font)
         MainWindow.setAutoFillBackground(False)
-        MainWindow.setStyleSheet(_fromUtf8("QFrame{\n"
+        MainWindow.setStyleSheet(_fromUtf8("QFrame#frame{\n"
 "    background-image: url(:/prefix/Pictures/Assets/ubuntu12.04-login-screen.png);\n"
 "}\n"
 "QPushButton{\n"
@@ -43,7 +43,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.frame = QtGui.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 971, 711))
+        self.frame.setGeometry(QtCore.QRect(-10, -10, 971, 711))
         self.frame.setStyleSheet(_fromUtf8(""))
         self.frame.setFrameShape(QtGui.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtGui.QFrame.Raised)
@@ -99,17 +99,29 @@ class Ui_MainWindow(object):
         self.twitter.setText(_fromUtf8(""))
         self.twitter.setObjectName(_fromUtf8("twitter"))
         self.msg = QtGui.QLabel(self.frame)
-        self.msg.setGeometry(QtCore.QRect(20, 310, 911, 71))
+        self.msg.setGeometry(QtCore.QRect(30, 310, 911, 101))
         font = QtGui.QFont()
-        font.setPointSize(14)
+        font.setFamily(_fromUtf8("MS Shell Dlg 2"))
+        font.setPointSize(10)
         font.setBold(False)
+        font.setItalic(False)
         font.setWeight(50)
         self.msg.setFont(font)
-        self.msg.setStyleSheet(_fromUtf8(""))
+        self.msg.setStyleSheet(_fromUtf8("font: 14pt \"MS Shell Dlg 2\";\n"
+"color: rgb(255, 255, 255);"))
         self.msg.setText(_fromUtf8(""))
         self.msg.setTextFormat(QtCore.Qt.RichText)
         self.msg.setWordWrap(True)
         self.msg.setObjectName(_fromUtf8("msg"))
+        self.msg.raise_()
+        self.loginUsername.raise_()
+        self.loginPassword.raise_()
+        self.loginSubmit.raise_()
+        self.signUpUsername.raise_()
+        self.signUpPass.raise_()
+        self.signUpEmail.raise_()
+        self.signUpSubmit.raise_()
+        self.twitter.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -122,7 +134,7 @@ class Ui_MainWindow(object):
         self.loginSubmit.setText(_translate("MainWindow", "Login", None))
         self.signUpUsername.setPlaceholderText(_translate("MainWindow", "Username", None))
         self.signUpPass.setPlaceholderText(_translate("MainWindow", "password", None))
-        self.signUpEmail.setPlaceholderText(_translate("MainWindow", "Full Name", None))
+        self.signUpEmail.setPlaceholderText(_translate("MainWindow", "Email", None))
         self.signUpSubmit.setText(_translate("MainWindow", "Sign Up", None))
 
 import rs1
@@ -131,6 +143,7 @@ if __name__ == "__main__":
     import sys
     import os
     from pymongo import MongoClient
+    #import twitter
     client = MongoClient()
 
     usersDB = client['vocabulary-builder']

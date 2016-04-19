@@ -22,7 +22,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">QFrame{
+   <string notr="true">QFrame#frame{
 	background-image: url(:/prefix/Pictures/Assets/ubuntu12.04-login-screen.png);
 }
 QPushButton{
@@ -200,10 +200,10 @@ background-repeat: no-repeat;</string>
     <widget class="QLabel" name="msg">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>30</x>
        <y>310</y>
        <width>911</width>
-       <height>71</height>
+       <height>101</height>
       </rect>
      </property>
      <property name="font">
@@ -214,7 +214,8 @@ background-repeat: no-repeat;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string/>
@@ -226,6 +227,15 @@ background-repeat: no-repeat;</string>
       <bool>true</bool>
      </property>
     </widget>
+    <zorder>msg</zorder>
+    <zorder>loginUsername</zorder>
+    <zorder>loginPassword</zorder>
+    <zorder>loginSubmit</zorder>
+    <zorder>signUpUsername</zorder>
+    <zorder>signUpPass</zorder>
+    <zorder>signUpEmail</zorder>
+    <zorder>signUpSubmit</zorder>
+    <zorder>twitter</zorder>
    </widget>
   </widget>
  </widget>
